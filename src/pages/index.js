@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <div>
       <p>hello pinecone</p>
+      <p>hello pinecone</p>
     </div>
   );
 }
