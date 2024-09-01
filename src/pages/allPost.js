@@ -1,10 +1,15 @@
 import useSWR from "swr";
 import BlogCard from "../component/BlogCard";
+import {Stylish} from "next/font/google";
+<style>
+  @import
+  url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+</style>;
 const url = "https://dev.to/api/articles";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const Allpost = () => {
-  const { data, error, isLoading } = useSWR(url, fetcher);
+  const {data, error, isLoading} = useSWR(url, fetcher);
 
   if (isLoading) {
     return <p>...loading</p>;
@@ -13,9 +18,9 @@ const Allpost = () => {
   if (error) {
     return <p>...oh sorry error</p>;
   }
-  console.log(data);
+
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className=" grid grid-cols-3 gap-4">
       {data.map((blog) => {
         return (
           <BlogCard
