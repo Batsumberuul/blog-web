@@ -1,7 +1,6 @@
 import useSWR from "swr";
 import BlogCard from "../component/BlogCard";
 import AllPostCategory from "../component/AllPostCategory";
-import moment from "moment";
 
 const AllPostCategoryDatas = [
   "Design",
@@ -15,7 +14,7 @@ const url = "https://dev.to/api/articles";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const Allpost = () => {
-  const { data, error, isLoading } = useSWR(url, fetcher);
+  const {data, error, isLoading} = useSWR(url, fetcher);
 
   if (isLoading) {
     return <p>...loading</p>;
