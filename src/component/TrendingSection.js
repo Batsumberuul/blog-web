@@ -1,11 +1,10 @@
 import useSWR from "swr";
 import Trending from "./Trending";
-
-const url = "https://dev.to/api/articles";
+import { articlesAPI } from "../pages/allPost";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const TrendingSection = () => {
-  const {data, error, isLoading} = useSWR(url, fetcher);
+  const { data, error, isLoading } = useSWR(articlesAPI, fetcher);
 
   if (isLoading) {
     return <p>...loading</p>;
@@ -14,18 +13,18 @@ const TrendingSection = () => {
   if (error) {
     return <p>...oh sorry error</p>;
   }
+
+  const trendingPosts = [...data].slice(0, 4);
   return (
-    <div className="flex justify-between gap-4">
-      {data.map((card, index) => {
-        if (index < 4) {
-          return (
-            <Trending
-              coverImage={card.cover_image}
-              title={card.title}
-            />
-          );
-        }
-      })}
+    <div className="flex flex-col gap-4">
+      <div>
+        <p className="font-bold text-2xl text-gray-800"> Trending</p>
+      </div>
+      <div className="flex justify-between gap-4">
+        {trendingPosts.map((card) => {
+          return <Trending coverImage={card.cover_image} title={card.title} />;
+        })}
+      </div>
     </div>
   );
 };

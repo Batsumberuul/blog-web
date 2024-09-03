@@ -1,8 +1,9 @@
 import useSWR from "swr";
 import BlogCard from "../component/BlogCard";
 import AllPostCategory from "../component/AllPostCategory";
+import { useState } from "react";
 
-const AllPostCategoryDatas = [
+const allPostCategoryDatas = [
   "Design",
   "Travel",
   "Fashion",
@@ -10,11 +11,13 @@ const AllPostCategoryDatas = [
   "Branding",
 ];
 
-const url = "https://dev.to/api/articles";
+export const articlesAPI = "https://dev.to/api/articles";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
 const Allpost = () => {
-  const {data, error, isLoading} = useSWR(url, fetcher);
+  const [postCount, setPostCount] = useState(9);
+  const { data, error, isLoading } = useSWR(articlesAPI, fetcher);
 
   if (isLoading) {
     return <p>...loading</p>;
@@ -24,6 +27,14 @@ const Allpost = () => {
     return <p>...oh sorry error</p>;
   }
 
+  const posts = [...data].slice(0, postCount);
+
+  const loadMorePosts = () => {
+    if (postCount < 30) {
+      setPostCount((prev) => prev + 9);
+    }
+  };
+
   return (
     <div>
       <div className="flex flex-col gap-4 pb-6">
@@ -32,7 +43,7 @@ const Allpost = () => {
         <div className="flex justify-between">
           <div className="flex gap-5 ">
             <p className="font-bold text-xs text-amber-600">All</p>
-            {AllPostCategoryDatas.map((AllPostCategoryData) => {
+            {allPostCategoryDatas.map((AllPostCategoryData) => {
               return <AllPostCategory text={AllPostCategoryData} />;
             })}
           </div>
@@ -42,19 +53,27 @@ const Allpost = () => {
       </div>
 
       <div className="grid grid-cols-3 justify-between gap-4">
-        {data.map((blog, index) => {
-          if (index < 9) {
-            return (
-              <BlogCard
-                key={blog.id}
-                image={blog.cover_image}
-                buttonText={blog.type_of}
-                title={blog.title}
-                date={blog.published_at}
-              />
-            );
-          }
+        {posts.map((blog) => {
+          return (
+            <BlogCard
+              k
+              image={blog.cover_image}
+              buttonText={blog.type_of}
+              title={blog.title}
+              date={blog.published_at}
+            />
+          );
         })}
+      </div>
+      <div className="flex justify-center m-4">
+        {postCount < 30 && (
+          <button
+            onClick={loadMorePosts}
+            className="btn btn-outline border-gray-200 text-[#696A75] font-medium text-base"
+          >
+            Load More
+          </button>
+        )}
       </div>
     </div>
   );

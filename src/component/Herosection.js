@@ -2,14 +2,11 @@ import Button from "./Button";
 import moment from "moment";
 
 const Herosection = (props) => {
-  const {image, title, date} = props;
+  const { image, title, date } = props;
   return (
     <div>
       <div className="flex justify-center relative">
-        <img
-          className="w-fit h-[600px] rounded-md"
-          src={image}
-        />
+        <img className="w-fit h-[600px] rounded-md" src={image} />
         <div className="absolute w-[598px] h-[252px] bottom-0 left-0 bg-[#FFFFFF] ml-2 mb-2 rounded-md flex flex-col justify-center px-6 gap-4">
           <Button buttonText="Technology" />
           <p className=" text-[#181A2A] font-semibold text-2xl text-start">
