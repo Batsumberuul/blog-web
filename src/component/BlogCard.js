@@ -1,14 +1,11 @@
 import moment from "moment";
 
 const BlogCard = (props) => {
-  const {image, title, date, buttonText} = props;
+  const { image, title, date, buttonText } = props;
   return (
     <div className="w-[] h-[476px] flex flex-col gap-4 border-2 border-solid p-4 rounded-xl border-gray-100">
       <div className="flex flex-1 justify-center items-center">
-        <img
-          className="border-2 rounded-xl w-[360px] h-[240px]"
-          src={image}
-        />
+        <img className="border-2 rounded-xl w-[360px] h-[240px]" src={image} />
       </div>
       <button className="bg-gray-100 font-normal text-base text-[#4B6BFB] py-1 px-2.5 rounded-md w-fit">
         {buttonText}

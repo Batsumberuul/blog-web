@@ -10,13 +10,16 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <div className="container mx-auto ">
-      <Header />
-
-      <Hero />
-      <TrendingSection />
-      <Allpost />
-      <Footer />
+    <div>
+      <div className="container mx-auto">
+        <Header />
+        <Hero />
+        <TrendingSection />
+        <Allpost />
+      </div>
+      <div className="bg-[#F6F6F7]">
+        <Footer />
+      </div>
     </div>
   );
 }

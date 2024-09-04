@@ -1,5 +1,5 @@
 const AllPostCategory = (props) => {
   const { text } = props;
-  return <p className="font-bold text-xs text-gray-800">{text}</p>;
+  return <button className="font-bold text-xs text-gray-800">{text}</button>;
 };
 export default AllPostCategory;

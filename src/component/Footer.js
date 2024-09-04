@@ -7,8 +7,8 @@ import FooterLogo from "./FooterLogo";
 
 const Footer = () => {
   return (
-    <div className="bg-[#F6F6F7] ">
-      <div className="flex gap-40">
+    <div className="container mx-auto pt-16 ">
+      <div className="flex gap-64 pb-8">
         <div className="flex flex-col gap-6">
           <div className="flex flex-col w-[280px] gap-3">
             <p className="text-[#181A2A] font-semibold text-lg">About</p>

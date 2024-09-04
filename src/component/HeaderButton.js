@@ -1,9 +1,10 @@
 const HeaderButton = (props) => {
-  const {text} = props;
+  const { text } = props;
   return (
-    <button className=" text-center font-normal text-sm text-gray-500">
-      {text}
-    </button>
+    <input
+      className=" text-center font-normal text-sm text-gray-500  bg-gray-100 h-[36px] "
+      placeholder="Search"
+    ></input>
   );
 };
 export default HeaderButton;

@@ -4,11 +4,11 @@ import AllPostCategory from "../component/AllPostCategory";
 import { useState } from "react";
 
 const allPostCategoryDatas = [
-  "Design",
-  "Travel",
-  "Fashion",
-  "Technology",
-  "Branding",
+  "devchallenge",
+  "career",
+  "meta",
+  "discuss",
+  "weeklyretro",
 ];
 
 export const articlesAPI = "https://dev.to/api/articles";
@@ -18,6 +18,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const Allpost = () => {
   const [postCount, setPostCount] = useState(9);
   const { data, error, isLoading } = useSWR(articlesAPI, fetcher);
+  console.log(data);
 
   if (isLoading) {
     return <p>...loading</p>;
@@ -36,13 +37,13 @@ const Allpost = () => {
   };
 
   return (
-    <div>
-      <div className="flex flex-col gap-4 pb-6">
+    <div className="pt-16">
+      <div className="flex flex-col gap-4 pb-6 ">
         <h1 className="font-bold text-2xl text-gray-800">All Blog Post</h1>
 
         <div className="flex justify-between">
           <div className="flex gap-5 ">
-            <p className="font-bold text-xs text-amber-600">All</p>
+            <button className="font-bold text-xs text-amber-600">All</button>
             {allPostCategoryDatas.map((AllPostCategoryData) => {
               return <AllPostCategory text={AllPostCategoryData} />;
             })}
@@ -56,9 +57,8 @@ const Allpost = () => {
         {posts.map((blog) => {
           return (
             <BlogCard
-              k
               image={blog.cover_image}
-              buttonText={blog.type_of}
+              buttonText={blog.tag_list[0]}
               title={blog.title}
               date={blog.published_at}
             />

@@ -7,27 +7,22 @@ const Header = () => {
   return (
     <div className="flex justify-between py-8">
       <div>
-        <img
-          className="w-[158px] h-[36px]"
-          src="/Logo.png"
-        />
+        <img className="w-[158px] h-[36px]" src="/Logo.png" />
       </div>
       <div className=" flex gap-10 justify-center  items-center">
         {headertexts.map((headertext, index) => {
-          return (
-            <HeaderText
-              key={index}
-              text={headertext}
-            />
-          );
+          return <HeaderText key={index} text={headertext} />;
         })}
       </div>
-      <div className="w-[166px] h-[36px] flex gap-3 justify-between bg-gray-100 py-2 pr-2 pl-4 rounded-md">
-        <HeaderButton text="Search" />
-        <div className="flex justify-center items-center">
+      {/* <div className="w-[166px] h-[36px] flex  items-center bg-gray-100 py-2 pr-2 pl-4 rounded-md"> */}
+      <div className="flex items-center  w-[166px] h-[36px]  bg-gray-100 rounded-l-md">
+        {" "}
+        <HeaderButton />
+        <div className=" flex justify-center items-center  bg-gray-100 h-[36px]  rounded-sm">
           <SearchIcon />
         </div>
       </div>
+      {/* </div> */}
     </div>
   );
 };

@@ -2,12 +2,9 @@ import FooterText from "./FooterText";
 
 const FooterLogo = () => {
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between border-t-2 py-9 items-center">
       <div>
-        <img
-          className="w-[158px] h-[36px]"
-          src="/Logo.png"
-        />
+        <img className="w-[158px] h-[36px]" src="/Logo.png" />
         <FooterText text="© All Rights Reserved." />
       </div>
       <div className="flex gap-4 justify-items-center">
