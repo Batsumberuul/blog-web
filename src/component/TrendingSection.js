@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import Trending from "./Trending";
-import { articlesAPI } from "../pages/allPost";
+import { articlesAPI } from "./allPost";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const TrendingSection = () => {

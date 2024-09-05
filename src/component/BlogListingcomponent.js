@@ -3,7 +3,7 @@ import useSWR from "swr";
 import BlogCard from "./BlogCard";
 import { useState } from "react";
 
-import { articlesAPI } from "../pages/allPost";
+import { articlesAPI } from "./allPost";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import Allpost from "./allPost";
+import Allpost from "../component/allPost";
 import Header from "../component/Header";
 import Hero from "../component/Hero";
 import TrendingSection from "../component/TrendingSection";

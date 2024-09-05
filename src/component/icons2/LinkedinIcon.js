@@ -15,11 +15,7 @@ const LinkedinIcon = () => {
       </g>
       <defs>
         <clipPath id="clip0_2245_313">
-          <rect
-            width="16"
-            height="16"
-            fill="white"
-          />
+          <rect width="16" height="16" fill="white" />
         </clipPath>
       </defs>
     </svg>
