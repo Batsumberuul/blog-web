@@ -5,7 +5,7 @@ const headertexts = ["Home", "Blog", "Contact"];
 
 const Header = () => {
   return (
-    <div className="flex justify-between py-8">
+    <div className="flex justify-between py-8 container mx-auto">
       <div>
         <img className="w-[158px] h-[36px]" src="/Logo.png" />
       </div>

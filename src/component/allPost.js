@@ -33,7 +33,7 @@ const Allpost = () => {
   return (
     <div className="pt-16">
       <AllPostCategorypages />
-      <div className="grid grid-cols-3 justify-between gap-4">
+      <div className="grid md:grid-cols-3 justify-between gap-4 sm:grid-cols-1">
         {posts.map((blog) => {
           return (
             <Link href={`blog/${blog.id}`}>

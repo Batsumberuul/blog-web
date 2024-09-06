@@ -8,7 +8,7 @@ import FooterLogo from "./FooterLogo";
 const Footer = () => {
   return (
     <div className="container mx-auto pt-16 ">
-      <div className="flex gap-64 pb-8">
+      <div className="flex md:flex-row md:gap-64 pb-8 sm:flex-col sm:gap-4 ">
         <div className="flex flex-col gap-6">
           <div className="flex flex-col w-[280px] gap-3">
             <p className="text-[#181A2A] font-semibold text-lg">About</p>
@@ -23,7 +23,7 @@ const Footer = () => {
             <FooterText text="Phone : 880 123 456 789" />
           </div>
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex md:flex-col gap-2 sm:flex-row">
           <FooterText text="Home" />
           <FooterText text="Blog" />
           <FooterText text="Contact" />

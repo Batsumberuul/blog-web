@@ -30,7 +30,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="flex flex-col gap-2 pb-8">
+    <div className="md:flex flex-col gap-2 pb-8 hidden">
       {data.map((blog, index) => {
         if (currentSlideIndex === index) {
           return (
