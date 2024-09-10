@@ -17,7 +17,7 @@ const Header = () => {
         <Link href={"/"}>
           <HeaderText text="Home" />
         </Link>
-        <Link href={"/blog"}>
+        <Link href={"/blogPage"}>
           <HeaderText text="Blog" />
         </Link>
 
