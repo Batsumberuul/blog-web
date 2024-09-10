@@ -1,7 +1,5 @@
 import useSWR from "swr";
-import Header from "@/component/Header";
-import Footer from "@/component/Footer";
-import parse from "html-react-parser";
+
 import { useRouter } from "next/router";
 
 import Markdown from "react-markdown";
@@ -23,12 +21,9 @@ const Page = () => {
 
   return (
     <div className="container mx-auto">
-      {/* <Header /> */}
-      {/* <div className="p-4">{parse(body_html)}</div> */}
       <div className="prose flex flex-col pl-24">
         <Markdown rehypePlugins={[rehypeHighlight]}>{body_markdown}</Markdown>
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };
