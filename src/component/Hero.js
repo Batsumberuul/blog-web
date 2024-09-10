@@ -2,7 +2,8 @@ import Herosection from "./Herosection";
 import BackIcon from "./icons2/BackIcon";
 import ForwardIcon from "./icons2/ForwardIcon";
 import HeroCarousel from "./HeroCarousel";
-import { useState } from "react";
+import {useState} from "react";
+import Link from "next/link";
 
 import useSWR from "swr";
 
@@ -11,7 +12,7 @@ const url = "https://dev.to/api/articles";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const Hero = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  const { data, error, isLoading } = useSWR(url, fetcher);
+  const {data, error, isLoading} = useSWR(url, fetcher);
 
   if (isLoading) {
     return <p>...loading</p>;
@@ -34,19 +35,27 @@ const Hero = () => {
       {data.map((blog, index) => {
         if (currentSlideIndex === index) {
           return (
-            <HeroCarousel
-              image={blog.cover_image}
-              title={blog.title}
-              date={blog.published_at}
-            />
+            <Link href={`blog/${blog.id}`}>
+              <HeroCarousel
+                image={blog.cover_image}
+                title={blog.title}
+                date={blog.published_at}
+              />
+            </Link>
           );
         }
       })}
       <div className="flex justify-end gap-4">
-        <p onClick={handlePrevSlide} className="btn btn-outline">
+        <p
+          onClick={handlePrevSlide}
+          className="btn btn-outline"
+        >
           ❮
         </p>
-        <p onClick={handleNextSlide} className="btn btn-outline">
+        <p
+          onClick={handleNextSlide}
+          className="btn btn-outline"
+        >
           ❯
         </p>
       </div>

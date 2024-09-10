@@ -4,6 +4,7 @@ import TwitterIcon from "./icons2/TwitterIcon";
 import InstagramIcon from "./icons2/InstagramIcon";
 import LinkedinIcon from "./icons2/LinkedinIcon";
 import FooterLogo from "./FooterLogo";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -24,9 +25,15 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex md:flex-col gap-2 sm:flex-row">
-          <FooterText text="Home" />
-          <FooterText text="Blog" />
-          <FooterText text="Contact" />
+          <Link href={"/"}>
+            <FooterText text="Home" />
+          </Link>
+          <Link href={"/blogPage"}>
+            <FooterText text="Blog" />
+          </Link>
+          <Link href={"/contactPage"}>
+            <FooterText text="Contact" />
+          </Link>
         </div>
         <div className="flex gap-5">
           <FacebookIcon />

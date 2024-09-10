@@ -1,14 +1,14 @@
 import useSWR from "swr";
-import { articlesAPI } from "./allPost";
+import {articlesAPI} from "./allPost";
 
-import { useState } from "react";
+import {useState} from "react";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const AllPostCategorypages = () => {
   const [name, setname] = useState(5);
 
-  const { data, error, isLoading } = useSWR(articlesAPI, fetcher);
+  const {data, error, isLoading} = useSWR(articlesAPI, fetcher);
 
   if (isLoading) {
     return <p>...loading</p>;
@@ -33,11 +33,17 @@ const AllPostCategorypages = () => {
           <p className="font-bold text-xs text-amber-600">All</p>
           {posts.map((blog, index) => {
             return (
-              <AllPostCategory key={index} categoryName={blog.tag_list[0]} />
+              <AllPostCategory
+                key={index}
+                categoryName={blog.tag_list[0]}
+              />
             );
           })}
         </div>
-        <p className="font-bold text-xs text-gray-800" onClick={showname}>
+        <p
+          className="font-bold text-xs text-gray-800"
+          onClick={showname}
+        >
           {" "}
           View All
         </p>
@@ -48,7 +54,7 @@ const AllPostCategorypages = () => {
 export default AllPostCategorypages;
 
 const AllPostCategory = (props) => {
-  const { categoryName } = props;
+  const {categoryName} = props;
   return (
     <div className="flex gap-5 ">
       <p className="font-bold text-xs text-gray-800">{categoryName}</p>

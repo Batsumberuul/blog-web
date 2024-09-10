@@ -8,7 +8,10 @@ const Header = () => {
   return (
     <div className="flex justify-between py-8 container mx-auto">
       <div>
-        <img className="w-[158px] h-[36px]" src="/Logo.png" />
+        <img
+          className="w-[158px] h-[36px]"
+          src="/Logo.png"
+        />
       </div>
       <div className=" flex gap-10 justify-center  items-center">
         {/* {headertexts.map((headertext, index) => {
@@ -26,12 +29,10 @@ const Header = () => {
         </Link>
       </div>
       {/* <div className="w-[166px] h-[36px] flex  items-center bg-gray-100 py-2 pr-2 pl-4 rounded-md"> */}
-      <div className="flex items-center  w-[166px] h-[36px]  bg-gray-100 rounded-l-md">
+      <div className="flex items-center  w-[190px] h-[36px]  bg-gray-100 rounded-md border-red-600">
         {" "}
         <HeaderButton />
-        <div className=" flex justify-center items-center  bg-gray-100 h-[36px]  rounded-sm">
-          <SearchIcon />
-        </div>
+        <SearchIcon />
       </div>
       {/* </div> */}
     </div>
