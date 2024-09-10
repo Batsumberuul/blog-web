@@ -1,6 +1,6 @@
 import BlogCard from "../component/BlogCard";
 import useSWR from "swr";
-import { useState } from "react";
+import {useState} from "react";
 
 export const articlesAPI = "https://dev.to/api/articles";
 
@@ -8,8 +8,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const BlogPage = () => {
   const [postCount, setPostCount] = useState(9);
-  const { data, error, isLoading } = useSWR(articlesAPI, fetcher);
-  console.log(data);
+  const {data, error, isLoading} = useSWR(articlesAPI, fetcher);
 
   if (isLoading) {
     return <p>...loading</p>;
@@ -30,9 +29,10 @@ const BlogPage = () => {
     <div className="container mx-auto">
       <h1 className="font-bold text-2xl text-gray-800 p-6">All Blog Post</h1>
       <div className="grid md:grid-cols-3 justify-between gap-4 sm:grid-cols-1">
-        {posts.map((blog) => {
+        {posts.map((blog, index) => {
           return (
             <BlogCard
+              key={index}
               image={blog.cover_image}
               buttonText={blog.tag_list[0]}
               title={blog.title}

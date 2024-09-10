@@ -1,6 +1,5 @@
 import Herosection from "./Herosection";
-import BackIcon from "./icons2/BackIcon";
-import ForwardIcon from "./icons2/ForwardIcon";
+
 import HeroCarousel from "./HeroCarousel";
 import {useState} from "react";
 import Link from "next/link";
@@ -59,15 +58,6 @@ const Hero = () => {
           ❯
         </p>
       </div>
-      {/* <HeroCarousel
-        image={data[0].cover_image}
-        title={data[0].title}
-        date={data[0].published_at}
-      /> */}
-      {/* <div className="flex gap-2 justify-end">
-        <BackIcon />
-        <ForwardIcon />
-      </div> */}
     </div>
   );
 };

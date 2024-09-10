@@ -2,7 +2,7 @@ import useSWR from "swr";
 import BlogCard from "./BlogCard";
 
 import AllPostCategorypages from "./AllPostCategory";
-import { useState } from "react";
+import {useState} from "react";
 import Link from "next/link";
 
 export const articlesAPI = "https://dev.to/api/articles";
@@ -11,7 +11,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const Allpost = () => {
   const [postCount, setPostCount] = useState(9);
-  const { data, error, isLoading } = useSWR(articlesAPI, fetcher);
+  const {data, error, isLoading} = useSWR(articlesAPI, fetcher);
   console.log(data);
 
   if (isLoading) {

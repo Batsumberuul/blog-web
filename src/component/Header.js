@@ -14,9 +14,6 @@ const Header = () => {
         />
       </div>
       <div className=" flex gap-10 justify-center  items-center">
-        {/* {headertexts.map((headertext, index) => {
-          return <HeaderText key={index} text={headertext} />;
-        })} */}
         <Link href={"/"}>
           <HeaderText text="Home" />
         </Link>
@@ -28,13 +25,12 @@ const Header = () => {
           <HeaderText text="Contact" />
         </Link>
       </div>
-      {/* <div className="w-[166px] h-[36px] flex  items-center bg-gray-100 py-2 pr-2 pl-4 rounded-md"> */}
+
       <div className="flex items-center  w-[190px] h-[36px]  bg-gray-100 rounded-md border-red-600">
         {" "}
         <HeaderButton />
         <SearchIcon />
       </div>
-      {/* </div> */}
     </div>
   );
 };

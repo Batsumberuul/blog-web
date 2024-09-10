@@ -29,7 +29,7 @@ const AllPostCategorypages = () => {
     <div className="flex flex-col gap-4 pb-6">
       <h1 className="font-bold text-2xl text-gray-800">All Blog Post</h1>
       <div className="flex justify-between">
-        <div className="flex gap-5 w-[1100px] flex-wrap">
+        <div className="flex gap-5 w-[800px] flex-wrap">
           <p className="font-bold text-xs text-amber-600">All</p>
           {posts.map((blog, index) => {
             return (
@@ -41,7 +41,7 @@ const AllPostCategorypages = () => {
           })}
         </div>
         <p
-          className="font-bold text-xs text-gray-800"
+          className="font-bold text-xs text-gray-800 "
           onClick={showname}
         >
           {" "}

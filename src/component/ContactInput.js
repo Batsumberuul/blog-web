@@ -1,5 +1,6 @@
+import Button from "./Button";
 const ContactInput = (props) => {
-  const { text } = props;
+  const {text} = props;
   return (
     <div className="flex flex-col gap-6 bg-[#F6F6F7] w-[643px] p-6 rounded-md ">
       <h1 className="text-[#000000] font-semibold text-base">
@@ -30,9 +31,9 @@ const ContactInput = (props) => {
         />
       </div>
 
-      <button className="btn btn-primary border-none bg-[#4B6BFB] w-fit">
-        Send message
-      </button>
+      <div className="h-40[px] w-[130px] rounded-md pt-2 pb-2 bg-[#4B6BFB] ">
+        <Button buttonText="Send message" />
+      </div>
     </div>
   );
 };
