@@ -1,4 +1,10 @@
+import Contact from "../component/Contact";
+
 const ContactPage = () => {
-  return <div>contact</div>;
+  return (
+    <div className="container mx-auto">
+      <Contact />
+    </div>
+  );
 };
 export default ContactPage;

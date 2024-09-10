@@ -12,14 +12,12 @@ export default function Home() {
   return (
     <div>
       <div className="container mx-auto">
-        <Header />
+        {/* <Header /> */}
         <Hero />
         <TrendingSection />
         <Allpost />
       </div>
-      <div className="bg-[#F6F6F7]">
-        <Footer />
-      </div>
+      <div className="bg-[#F6F6F7]">{/* <Footer /> */}</div>
     </div>
   );
 }
