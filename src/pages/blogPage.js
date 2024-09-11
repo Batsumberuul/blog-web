@@ -1,7 +1,8 @@
 import BlogCard from "../component/BlogCard";
 import useSWR from "swr";
-import { useState, useContext } from "react";
-import { DataContext } from "@/component/DataContext";
+import {useState, useContext} from "react";
+import {DataContext} from "@/component/DataContext";
+import BlogCardsUser from "@/component/BlogCardUser";
 
 // export const articlesAPI = "https://dev.to/api/articles";
 
@@ -9,6 +10,8 @@ import { DataContext } from "@/component/DataContext";
 
 const BlogPage = () => {
   const data = useContext(DataContext);
+  console.log(data);
+
   const [postCount, setPostCount] = useState(9);
   // const { data, error, isLoading } = useSWR(articlesAPI, fetcher);
 
@@ -33,11 +36,13 @@ const BlogPage = () => {
       <div className="grid md:grid-cols-3 justify-between gap-4 sm:grid-cols-1">
         {posts.map((blog, index) => {
           return (
-            <BlogCard
+            <BlogCardsUser
               key={index}
               image={blog.cover_image}
-              buttonText={blog.tag_list[0]}
+              buttonText={blog.tag_list[length]}
               title={blog.title}
+              profileImage={blog.user.profile_image}
+              name={blog.user.username}
               date={blog.published_at}
             />
           );
