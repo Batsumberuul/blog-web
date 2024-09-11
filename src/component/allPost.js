@@ -2,25 +2,26 @@ import useSWR from "swr";
 import BlogCard from "./BlogCard";
 
 import AllPostCategorypages from "./AllPostCategory";
-import {useState} from "react";
+import { useState, useContext, use } from "react";
 import Link from "next/link";
+import { DataContext } from "./DataContext";
 
-export const articlesAPI = "https://dev.to/api/articles";
+// export const articlesAPI = "https://dev.to/api/articles";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+// const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const Allpost = () => {
+  const data = useContext(DataContext);
   const [postCount, setPostCount] = useState(9);
-  const {data, error, isLoading} = useSWR(articlesAPI, fetcher);
-  console.log(data);
+  // const { data, error, isLoading } = useSWR(articlesAPI, fetcher);
 
-  if (isLoading) {
-    return <p>...loading</p>;
-  }
+  // if (isLoading) {
+  //   return <p>...loading</p>;
+  // }
 
-  if (error) {
-    return <p>...oh sorry error</p>;
-  }
+  // if (error) {
+  //   return <p>...oh sorry error</p>;
+  // }
 
   const posts = [...data].slice(0, postCount);
 

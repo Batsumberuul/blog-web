@@ -1,23 +1,26 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
-import Allpost from "../component/allPost";
-import Header from "../component/Header";
-import Hero from "../component/Hero";
-import TrendingSection from "../component/TrendingSection";
-import Footer from "../component/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+import Allpost from "../component/allPost";
+
+import TrendingSection from "../component/TrendingSection";
+
+import { DataContext } from "@/component/DataContext";
+
+import { ThemeContext } from "@/component/ThemeContext";
+
+import { useContext } from "react";
+import Hero from "@/component/Hero";
 
 export default function Home() {
+  // const light = useContext(ThemeContext);
+  const data = useContext(DataContext);
+  console.log(data);
   return (
-    <div>
-      <div className="container mx-auto">
-        {/* <Header /> */}
-        <Hero />
-        <TrendingSection />
-        <Allpost />
-      </div>
-      <div className="bg-[#F6F6F7]">{/* <Footer /> */}</div>
+    <div className="container mx-auto">
+      <Hero />
+
+      <TrendingSection />
+      <Allpost />
     </div>
   );
 }

@@ -1,20 +1,22 @@
 import useSWR from "swr";
 import Trending from "./Trending";
-import {articlesAPI} from "./allPost";
-import {useState} from "react";
+import { articlesAPI } from "./allPost";
+import { useState, useContext } from "react";
+import { DataContext } from "./DataContext";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const TrendingSection = () => {
-  const {data, error, isLoading} = useSWR(articlesAPI, fetcher);
+  const data = useContext(DataContext);
+  // const { data, error, isLoading } = useSWR(articlesAPI, fetcher);
   const [posts, setPosts] = useState(0);
 
-  if (isLoading) {
-    return <p>...loading</p>;
-  }
+  // if (isLoading) {
+  //   return <p>...loading</p>;
+  // }
 
-  if (error) {
-    return <p>...oh sorry error</p>;
-  }
+  // if (error) {
+  //   return <p>...oh sorry error</p>;
+  // }
 
   // const trendingPosts = [...data].slice(0, posts);
 
@@ -27,10 +29,7 @@ const TrendingSection = () => {
         {data.map((card) => {
           return (
             <div className="carousel-item">
-              <Trending
-                coverImage={card.cover_image}
-                title={card.title}
-              />
+              <Trending coverImage={card.cover_image} title={card.title} />
             </div>
           );
         })}

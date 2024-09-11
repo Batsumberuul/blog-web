@@ -1,6 +1,6 @@
 import useSWR from "swr";
 
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 import Markdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
@@ -12,7 +12,7 @@ const Page = () => {
   const blogId = router.query.blogId;
   const url = `https://dev.to/api/articles/${blogId}`;
 
-  const {data: blogDetial = {}, isLoading} = useSWR(url, fetcher);
+  const { data: blogDetial = {}, isLoading } = useSWR(url, fetcher);
 
   if (isLoading) return <div>isLoading</div>;
 
