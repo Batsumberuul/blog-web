@@ -2,9 +2,9 @@ import useSWR from "swr";
 import BlogCard from "./BlogCard";
 
 import AllPostCategorypages from "./AllPostCategory";
-import { useState, useContext, use } from "react";
+import {useState, useContext, use} from "react";
 import Link from "next/link";
-import { DataContext } from "./DataContext";
+import {DataContext} from "./DataContext";
 
 // export const articlesAPI = "https://dev.to/api/articles";
 
