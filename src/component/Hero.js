@@ -5,31 +5,37 @@ import Link from "next/link";
 
 const Hero = () => {
   const data = useContext(DataContext);
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+  const [currentBlogIndex, setCurrentBlogIndex] = useState(0);
 
   const handleNextSlide = () => {
-    setCurrentSlideIndex((prev) => prev + 1);
+    setCurrentBlogIndex((prev) => prev + 1);
   };
 
   const handlePrevSlide = () => {
-    setCurrentSlideIndex((prev) => prev - 1);
+    setCurrentBlogIndex((prev) => prev - 1);
   };
+
+  const filteredBlogs = data.filter((blog) => {
+    if (!blog.cover_image) {
+      return false;
+    }
+
+    return true;
+  });
+
+  const currentBlog = filteredBlogs[currentBlogIndex];
 
   return (
     <div className="md:flex flex-col gap-2 pb-8 hidden">
-      {data.map((blog, index) => {
-        if (currentSlideIndex === index) {
-          return (
-            <Link href={`blog/${blog.id}`}>
-              <HeroCarousel
-                image={blog.cover_image}
-                title={blog.title}
-                date={blog.published_at}
-              />
-            </Link>
-          );
-        }
-      })}
+      <Link href={`blog/${currentBlog.id}`}>
+        <HeroCarousel
+          image={currentBlog.cover_image}
+          title={currentBlog.title}
+          date={currentBlog.published_at}
+        />
+      </Link>
+
       <div className="flex justify-end gap-4">
         <p onClick={handlePrevSlide} className="btn btn-outline">
           ❮
