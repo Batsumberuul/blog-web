@@ -23,9 +23,6 @@ const Header = () => {
           <HeaderText text="Contact" />
         </Link>
       </div>
-      {/* <div>
-        <button onClick={setDark}>dark</button>
-      </div> */}
 
       <div className="flex items-center  w-[190px] h-[36px]  bg-gray-100 rounded-md border-red-600">
         {" "}

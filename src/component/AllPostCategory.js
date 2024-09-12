@@ -1,27 +1,10 @@
-import useSWR from "swr";
-// import { articlesAPI } from "./allPost";
-
-import {useState, useContext} from "react";
-import {DataContext} from "./DataContext";
-import Link from "next/link";
-
-// const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import { useState, useContext } from "react";
+import { DataContext } from "./DataContext";
 
 const AllPostCategorypages = () => {
   const data = useContext(DataContext);
 
   const [name, setname] = useState(5);
-  const [tag, setTag] = useState(0);
-
-  // const { data, error, isLoading } = useSWR(articlesAPI, fetcher);
-
-  // if (isLoading) {
-  //   return <p>...loading</p>;
-  // }
-
-  // if (error) {
-  //   return <p>...oh sorry error</p>;
-  // }
 
   const tags = [];
 
@@ -48,18 +31,12 @@ const AllPostCategorypages = () => {
           {posts.map((tag, index) => {
             return (
               // <Link href={"/tagblog"}>
-              <AllPostCategory
-                key={index}
-                categoryName={tag}
-              />
+              <AllPostCategory key={index} categoryName={tag} />
               // </Link>
             );
           })}
         </div>
-        <p
-          className="font-bold text-xs text-gray-800 "
-          onClick={showname}
-        >
+        <p className="font-bold text-xs text-gray-800 " onClick={showname}>
           {" "}
           View All
         </p>
@@ -70,7 +47,7 @@ const AllPostCategorypages = () => {
 export default AllPostCategorypages;
 
 const AllPostCategory = (props) => {
-  const {categoryName} = props;
+  const { categoryName } = props;
   return (
     <div className="flex gap-5 ">
       <p className="font-bold text-xs text-gray-800">{categoryName}</p>

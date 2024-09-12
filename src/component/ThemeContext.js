@@ -1,5 +1,4 @@
-import { createContext, use, useState } from "react";
-import useSWR from "swr";
+import { createContext } from "react";
 
 export const ThemeContext = createContext("light");
 

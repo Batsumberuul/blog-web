@@ -2,7 +2,6 @@ import ContactText from "./ContactText";
 import ContactAddress from "./ContactAddress";
 
 import ContactInput from "./ContactInput";
-import Link from "next/link";
 
 const Contact = () => {
   return (

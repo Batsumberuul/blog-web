@@ -1,25 +1,11 @@
-import Herosection from "./Herosection";
-
 import HeroCarousel from "./HeroCarousel";
-import {useState} from "react";
+import { useState, useContext } from "react";
+import { DataContext } from "./DataContext";
 import Link from "next/link";
 
-import useSWR from "swr";
-
-const url = "https://dev.to/api/articles";
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const Hero = () => {
+  const data = useContext(DataContext);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  const {data, error, isLoading} = useSWR(url, fetcher);
-
-  if (isLoading) {
-    return <p>...loading</p>;
-  }
-
-  if (error) {
-    return <p>...oh sorry error</p>;
-  }
 
   const handleNextSlide = () => {
     setCurrentSlideIndex((prev) => prev + 1);
@@ -45,16 +31,10 @@ const Hero = () => {
         }
       })}
       <div className="flex justify-end gap-4">
-        <p
-          onClick={handlePrevSlide}
-          className="btn btn-outline"
-        >
+        <p onClick={handlePrevSlide} className="btn btn-outline">
           ❮
         </p>
-        <p
-          onClick={handleNextSlide}
-          className="btn btn-outline"
-        >
+        <p onClick={handleNextSlide} className="btn btn-outline">
           ❯
         </p>
       </div>
