@@ -15,9 +15,9 @@ const TrendingSection = () => {
         <p className="font-bold text-2xl text-gray-800"> Trending</p>
       </div>
       <div className="flex justify-between gap-4 carousel carousel-center border-box">
-        {data.map((card) => {
+        {data.map((card, index) => {
           return (
-            <div className="carousel-item">
+            <div className="carousel-item" key={index}>
               <Trending coverImage={card.cover_image} title={card.title} />
             </div>
           );

@@ -11,10 +11,11 @@ import { ThemeContext } from "@/component/ThemeContext";
 import { useContext } from "react";
 import Hero from "@/component/Hero";
 
-export default function Home() {
+export default function Home(props) {
   // const light = useContext(ThemeContext);
+  const { articles } = props;
+
   const data = useContext(DataContext);
-  console.log(data);
 
   return (
     <div className="container mx-auto">
@@ -24,4 +25,21 @@ export default function Home() {
       <Allpost />
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  try {
+    const response = await fetch(`https://dev.to/api/articles`);
+    const articles = await response.json();
+
+    return {
+      props: {
+        articles,
+      },
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
 }
