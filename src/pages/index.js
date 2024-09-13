@@ -6,13 +6,10 @@ import TrendingSection from "../component/TrendingSection";
 
 import { DataContext } from "@/component/DataContext";
 
-import { ThemeContext } from "@/component/ThemeContext";
-
 import { useContext } from "react";
 import Hero from "@/component/Hero";
 
 export default function Home(props) {
-  // const light = useContext(ThemeContext);
   const { articles } = props;
 
   const data = useContext(DataContext);

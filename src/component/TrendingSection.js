@@ -18,7 +18,11 @@ const TrendingSection = () => {
         {data.map((card, index) => {
           return (
             <div className="carousel-item" key={index}>
-              <Trending coverImage={card.cover_image} title={card.title} />
+              <Trending
+                coverImage={card.cover_image}
+                title={card.title}
+                buttonText={card.tag_list[0]}
+              />
             </div>
           );
         })}

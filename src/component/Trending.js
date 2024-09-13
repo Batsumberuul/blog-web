@@ -1,7 +1,11 @@
 import Button from "./Button";
+import { DataContext } from "./DataContext";
+import { useState, useContext } from "react";
 
 const Trending = (props) => {
-  const {coverImage, title} = props;
+  const data = useContext(DataContext);
+
+  const { coverImage, title, buttonText } = props;
   return (
     <div
       className="bg-gray-500 rounded-md "
@@ -20,7 +24,10 @@ const Trending = (props) => {
         }}
       >
         <div className="flex flex-col gap-4 w-[220px] h-[120px] ">
-          <Button buttonText="Technology" />
+          <button className="bg-[#4B6BFB] font-normal text-base text-[#FFFFFF] py-1 px-2.5 rounded-md ">
+            {buttonText}{" "}
+          </button>
+
           <p className="text-[#FFFFFF] font-semibold text-2xl text-start overflow-hidden">
             {title}
           </p>

@@ -1,7 +1,7 @@
 import Button from "../component/Button";
 import Link from "next/link";
 
-const C404 = () => {
+const Custom404 = () => {
   return (
     <div className="flex  gap-10 justify-center p-20">
       <div>
@@ -23,4 +23,4 @@ const C404 = () => {
     </div>
   );
 };
-export default C404;
+export default Custom404;

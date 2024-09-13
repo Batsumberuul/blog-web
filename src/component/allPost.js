@@ -56,10 +56,11 @@ const Allpost = () => {
             {postsCategory.map((tag, index) => {
               return (
                 <div
+                  key={index}
                   onClick={() => handleSelectTag(tag)}
                   className="cursor-pointer"
                 >
-                  <AllPostCategory key={index} categoryName={tag} />
+                  <AllPostCategory categoryName={tag} />
                 </div>
               );
             })}
@@ -72,9 +73,9 @@ const Allpost = () => {
       </div>
 
       <div className="grid md:grid-cols-3 justify-between gap-4 sm:grid-cols-1">
-        {slicedBlogs.map((blog) => {
+        {slicedBlogs.map((blog, index) => {
           return (
-            <Link href={`blog/${blog.id}`}>
+            <Link key={index} href={`blog/${blog.id}`}>
               <BlogCard
                 image={blog.cover_image}
                 buttonText={blog.tag_list[0]}

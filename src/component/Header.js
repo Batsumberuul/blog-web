@@ -2,7 +2,7 @@ import HeaderText from "./HeaderText";
 import SearchIcon from "./icons2/SearchIcon";
 import HeaderButton from "./HeaderButton";
 import Link from "next/link";
-import { ThemeContext } from "./ThemeContext";
+
 import { useState } from "react";
 
 const Header = () => {
